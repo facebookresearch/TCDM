@@ -1,0 +1,26 @@
+
+<mujoco model="phone">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="phone" file="../meshes/objects/phone/phone.stl"  />
+        <mesh name="contact0" file="../meshes/objects/phone/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/phone/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/phone/contact2.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="phone_visual" class="object_visual" mesh="phone" rgba="1 0 0 1.0" />
+            <geom name="phone_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="phone_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="phone_contact2" class="object_contact" mesh="contact2"  />
+        </body>
+    </worldbody>
+</mujoco>

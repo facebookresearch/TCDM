@@ -1,0 +1,22 @@
+
+<mujoco model="cubemiddle">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="cubemiddle" file="../meshes/objects/cubemiddle/cubemiddle.stl"  />
+        <mesh name="contact0" file="../meshes/objects/cubemiddle/contact0.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="cubemiddle_visual" class="object_visual" mesh="cubemiddle" rgba="1 0 0 1.0" />
+            <geom name="cubemiddle_contact0" class="object_contact" mesh="contact0"  />
+        </body>
+    </worldbody>
+</mujoco>

@@ -1,0 +1,27 @@
+
+<mujoco model="coffeecan">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="003_cracker_box" file="../meshes/YCB_sim/meshes/003_cracker_box.msh" scale="1 1 1"/>
+        <texture name="003_cracker_box" type="2d" file="../meshes/YCB_sim/textures/003_cracker_box.png"/>
+        <material name="003_cracker_box" texture="003_cracker_box"/>
+
+        <mesh name="002_master_chef_can" file="../meshes/YCB_sim/meshes/002_master_chef_can.msh" scale="1 1 1"/>
+        <texture name="002_master_chef_can" type="2d" file="../meshes/YCB_sim/textures/002_master_chef_can.png"/>
+        <material name="002_master_chef_can" texture="002_master_chef_can"/>
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="coffeecan_visual" class="object_visual" mesh="002_master_chef_can" size=".1 .1" pos="0.014 0.014 0" material="002_master_chef_can"/>
+            <geom name="coffeecan_contact0" class="object_contact" type="cylinder" size=".05 .07" pos="-.003 0.004 .07" mass="0.414"/>
+        </body>
+    </worldbody>
+</mujoco>

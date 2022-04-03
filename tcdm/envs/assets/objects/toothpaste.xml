@@ -1,0 +1,22 @@
+
+<mujoco model="toothpaste">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="toothpaste" file="../meshes/objects/toothpaste/toothpaste.stl"  />
+        <mesh name="contact0" file="../meshes/objects/toothpaste/contact0.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="toothpaste_visual" class="object_visual" mesh="toothpaste" rgba="0.75 0.75 0.75 1.0" />
+            <geom name="toothpaste_contact0" class="object_contact" mesh="contact0"  />
+        </body>
+    </worldbody>
+</mujoco>

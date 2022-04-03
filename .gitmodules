@@ -1,0 +1,17 @@
+[submodule "tcdm/envs/assets/meshes/objects"]
+	path = tcdm/envs/assets/meshes/objects
+	url = https://github.com/vikashplus/object_sim.git
+[submodule "tcdm/envs/assets/meshes/robel"]
+	path = tcdm/envs/assets/meshes/robel
+	url = https://github.com/vikashplus/robel_sim.git
+	branch = experimental-hand
+[submodule "tcdm/envs/assets/meshes/franka_sim"]
+	path = tcdm/envs/assets/meshes/franka_sim
+	url = https://github.com/vikashplus/franka_sim.git
+[submodule "tcdm/envs/assets/meshes/dmanus_sim"]
+	path = tcdm/envs/assets/meshes/dmanus_sim
+	url = https://github.com/vikashplus/dmanus_sim.git
+	branch = dmanus_extra_THjoint
+[submodule "tcdm/envs/assets/meshes/YCB_sim"]
+	path = tcdm/envs/assets/meshes/YCB_sim
+	url = https://github.com/vikashplus/YCB_sim.git

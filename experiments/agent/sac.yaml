@@ -1,0 +1,20 @@
+name: SAC                                                   # algorithm name
+multi_proc: True                                            # whether to use multi_processing or not
+params:
+  learning_rate: 0.0003                                     # learning rate for adam optimizer
+  buffer_size: 1000000                                      # size of replay buffer
+  learning_starts: 100                                      # how many model steps to collect transition before learning
+  batch_size: 256                                           # gradient batch size
+  tau: 0.005                                                # soft update co-efficient (e.g. Polyak update)
+  gamma: 0.95                                               # discount factor
+  train_freq: 1                                             # how frequently to update model (see SB3 docs for advanced options)
+  gradient_steps: 1                                         # how many gradient steps to do after each rollout
+  ent_coef: auto                                            # entropy regularization co-efficient
+  target_entropy: auto                                      # target entropy when using auto mode
+  target_update_interval: 1                                 # how frequently to update the target network
+  warm_start_mean: True                                     # Warm start mean to explore around initial position
+policy_kwargs:                                              # Policy parameters (initial STD and architecture)
+  net_arch:
+      pi: [256, 128]
+      qf: [256, 128]
+  log_std_init: -1.60

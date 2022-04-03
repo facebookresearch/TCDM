@@ -1,0 +1,24 @@
+
+<mujoco model="hammer">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="hammer" file="../meshes/objects/hammer/hammer.stl"  />
+        <mesh name="contact0" file="../meshes/objects/hammer/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/hammer/contact1.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="hammer_visual" class="object_visual" mesh="hammer" rgba="1 0 0 0.0" />
+            <geom name="hammer_contact0" class="object_contact" mesh="contact0" rgba="0.73 0.5 0.39 1" />
+            <geom name="hammer_contact1" class="object_contact" mesh="contact1" rgba="1 1 1 1" />
+        </body>
+    </worldbody>
+</mujoco>

@@ -1,0 +1,365 @@
+<!--
+ ~ Copyright 2019 The ROBEL Authors.
+ ~
+ ~ Licensed under the Apache License, Version 2.0 (the "License");
+ ~ you may not use this file except in compliance with the License.
+ ~ You may obtain a copy of the License at
+ ~
+ ~     http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~ Unless required by applicable law or agreed to in writing, software
+ ~ distributed under the License is distributed on an "AS IS" BASIS,
+ ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ~ See the License for the specific language governing permissions and
+ ~ limitations under the License.
+ -->
+
+<!-- ======================================================
+    Extracted and Modified by Sudeep Dasari
+====================================================== -->
+
+
+<mujoco model='dhand'>
+
+    <asset>
+        <material name="visual_black" rgba=".2 .2 .2 1" shininess="0.8" specular=".5"/>
+        <material name="visual_blue" rgba="0.1 0.4 0.9 1" shininess="0.5" specular=".5"/>
+        <material name="visual_white" rgba="1 1 1 1" shininess="0.2" specular=".2"/>
+        <material name="visual_chrome" rgba=".5 .5 .5 1" shininess="1" specular=".5" reflectance="1"/>
+        <material name="collision_blue" rgba="0.3 0.3 1.0 0.5" shininess="0" specular="0"/>
+
+        <mesh file="../../meshes/robel/dhand/meshes/bracket1.stl" name="bracket1"/>
+        <mesh file="../../meshes/robel/dhand/meshes/bracket2.stl" name="bracket2"/>
+        <mesh file="../../meshes/robel/dhand/meshes/finger.stl" name="finger"/>
+        <mesh file="../../meshes/robel/dhand/meshes/H-540.stl" name="H-540"/>
+        <mesh file="../../meshes/robel/dhand/meshes/knuckle.stl" name="knuckle"/>
+        <mesh file="../../meshes/robel/dhand/meshes/motor.stl" name="motor"/>
+        <mesh file="../../meshes/robel/dhand/meshes/PalmInterior.stl" name="PalmInterior"/>
+        <mesh file="../../meshes/robel/dhand/meshes/Palmplate.stl" name="Palmplate"/>
+        <mesh file="../../meshes/robel/dhand/meshes/topPlate.stl" name="topPlate"/>
+        <mesh file="../../meshes/robel/dhand/meshes/thumb_bracket.stl" name="thumb_bracket"/>
+        <mesh file="../../meshes/robel/dhand/meshes/wristbracket1.stl" name="wristbracket1"/>
+        <mesh file="../../meshes/robel/dhand/meshes/wristbracket2.stl" name="wristbracket2"/>
+        <mesh file="../../meshes/robel/dhand/meshes/wristmount.stl" name="wristmount"/>
+    </asset>
+
+    <default>
+        <default class="dHand">
+            <joint armature="0.001" damping="1" limited="true"/>
+            <position ctrllimited="true" ctrlrange="0 1.57"/>
+            <geom conaffinity="0" contype="0" group="1" material="visual_black" type="mesh"/>
+            <site group="3"/>
+
+            <default class="vis_metal">
+                <geom conaffinity="0" contype="0" group="5" rgba="0.3 0.3 1.0 0.5"/>
+            </default>
+            <default class="phys_metal">
+                <geom conaffinity="0" contype="1" condim="4" margin="0.001" group="4" rgba="0.3 0.3 1.0 0.5"/>
+            </default>
+            <default class="vis_site">
+                <geom contype="0" conaffinity="0" mass="0" rgba="1 0 0 0" size=".03" type="sphere"/>
+            </default>
+            <default class="ADB">
+                <joint range="-.3 .3"/>
+                <position kp="5" ctrlrange="-.3 .3"/>
+            </default>
+            <default class="MCP">
+                <joint range="-.2 1.57"/>
+                <position kp="5" ctrlrange="-.2 1.57"/>
+            </default>
+            <default class="PIP">
+                <joint range="-.2 1.57"/>
+                <position kp="5" ctrlrange="-.2 1.57"/>
+            </default>
+            <default class="DIP">
+                <joint range="-.2 1.57"/>
+                <position kp="5" ctrlrange="-.2 1.57"/>
+            </default>
+            <default class="WR">
+                <joint damping="100" frictionloss="1"/>
+                <position kp="1600" ctrlrange="-.2 1.57"/>
+            </default>
+        </default>
+    </default>
+
+    <worldbody>
+        <body euler="1.57 3.14 0" name="wrist" pos="0 -0.7 0.2" childclass="dHand">
+            <geom euler="1.57 0 1.57" mesh="H-540" pos="0 0 0.037"/>
+            <geom material="visual_chrome" mesh="wristmount" pos="0 0 0.026"/>
+            <geom pos="0 0 -0.01" size="0.04 0.009" type="cylinder"/>
+            <geom class="phys_metal" pos="0 0 0.037" size="0.017 0.023 0.03" type="box" mass=".183"/>
+            <geom class="phys_metal" pos="0 0 -0.01" size="0.04 0.009" type="cylinder" mass=".03"/>
+            <geom class="phys_metal" pos="0 0 0.004" size="0.033 0.023 0.004" type="box" mass=".045"/>
+            <geom class="phys_metal" pos="0.02 0 0.031" size="0.004 0.023 0.024" type="box" mass=".04"/>
+            <geom class="phys_metal" pos="-0.02 0 0.031" size="0.004 0.023 0.024" type="box" mass=".04"/>
+
+            <joint name="ARTx" pos="0 0 0" axis="1 0 0" type="slide" range="-0.25 0.25" damping="20" />
+            <joint name="ARTy" pos="0 0 0" axis="0 1 0" type="slide" range="-0.2 0.1" damping="20" />
+            <joint name="ARTz" pos="0 0 0" axis="0 0 1" type="slide" range="-0.1 0.7" damping="20" />
+            <joint name="ARRx" pos="0 0 0" axis="1 0 0" range="-1.75 1.75" damping="20" />
+            <joint name="ARRy" pos="0 0 0" axis="0 1 0" range="-1.75 1.75" damping="20" />
+            <joint name="ARRz" pos="0 0 0" axis="0 0 1" range="-2.5 2.5" damping="20" />
+
+            <!-- WRIST AD-AB -->
+            <body name="wrist-adb" pos="0 0 0.052">
+                <body name="wrist_point"> <geom name="wrist_point" class="vis_site" /></body>
+                <joint axis="0 1 0" name="WR_ADB" range="-0.436 0.436" class="WR"/>
+                <geom material="visual_chrome" euler="-1.57 0 -1.57" mesh="wristbracket1" pos="0 0.024 0.016"/>
+                <geom material="visual_chrome" euler="1.57 0 1.57" mesh="wristbracket1" pos="0 -0.024 0.016"/>
+                <geom material="visual_chrome" mesh="wristbracket2" pos="0 0 0.043"/>
+
+                <geom class="phys_metal" pos="0 0 0.029" size="0.029 0.026 0.006" type="box" mass=".053"/>
+                <geom class="phys_metal" pos="-0.026 0 0.049" size="0.002 0.014 0.014" type="box" mass=".03"/>
+                <geom class="phys_metal" pos="0.026 0 0.049" size="0.003 0.014 0.014" type="box" mass=".03"/>
+                <!-- WRIST Up-Down -->
+                <body name="wrist-ud" pos="0 0 0.05" childclass="dHand">
+                    <joint axis="1 0 0" name="WR_UD" range="-0.436 0.436" class="WR"/>
+                    <geom euler="3.14 1.57 0" mesh="H-540" pos="0 0 0.025"/>
+                    <geom class="phys_metal" pos="0 0 0.024" euler="0 0 1.57" size="0.017 0.023 0.03" type="box" mass=".183" conaffinity="0" contype="0"/>
+
+                    <body name="palm" pos="0 0 0.01" childclass="dHand">
+                        <body name="palm_point"> <geom name="palm_point" class="vis_site"/></body>
+                        <geom euler="1.57 0 1.57" mesh="motor" pos="0.012 0 0.112"/>
+                        <geom euler="1.57 0 1.66" mesh="motor" pos="-0.042 0 0.111"/>
+                        <geom euler="1.57 0 1.484" mesh="motor" pos="0.066 0 0.111"/>
+                        <geom material="visual_white" euler="1.57 0 1.57" mesh="PalmInterior" pos="0.011 0 0.053"/>
+                        <geom euler="-1.57 0 1.57" mesh="topPlate" pos="0.0275 0.028 0.054" material="visual_chrome"/>
+                        <geom euler="1.57 0 1.57" mesh="Palmplate" pos="0.013 -0.025 0.061"/>
+                        <geom name="palm_1" class="phys_metal" pos="-0.011 0 0.048" size="0.047 0.027 0.037" type="box" mass=".300"/>
+                        <geom name="palm_2" class="phys_metal" pos="-0.044 0 -.002" size="0.014 0.027 0.013" type="box" mass=".150"/>
+                        <geom class="vis_metal" pos="0.012 0 0.109" size="0.015 0.017 0.024" type="box" mass=".086"/>
+                        <geom class="phys_metal" euler="0 0.087 0" pos="0.066 0 0.108" size="0.015 0.018 0.024" type="box" mass=".086"/>
+                        <geom class="phys_metal" euler="0 -0.087 0" pos="-0.042 0 0.108" size="0.015 0.018 0.024" type="box" mass=".086"/>
+                        <geom name="palm_3" class="phys_metal" pos="0.06 0 0.068" size="0.026 0.027 0.016" type="box" mass=".150"/>
+                        <geom name="palm_4" class="phys_metal" pos="0 -0.0248 -.002" size="0.03 0.002 0.013" type="box" mass=".30"/>
+                        <geom class="phys_metal" pos="0 0.0248 -.002" size="0.03 0.002 0.013" type="box" mass=".30"/>
+                        <geom name="palm_5" class="phys_metal" pos="0.014 -0.025 0.109" size="0.072 0.002 0.026" type="box" mass=".50"/>
+                        <geom class="phys_metal" pos="0.014 0.025 0.109" size="0.072 0.002 0.026" type="box" mass=".50"/>
+                        <geom name="palm_6" class="phys_metal" pos="0.047 0 -.001" size="0.017 0.027 0.0145" type="box" mass=".79"/>
+                        <site name="grasp" pos="0 -.125 .1" type="sphere" size="0.020"/>
+                        <!-- INDEX/FIRST FINGER -->
+                        <body euler="0 0.087 0" name="FF_metacarpel" pos="0.067 0 0.12">
+                            <body name="ffknuckle_point"> <geom name="ffknuckle_point" class="vis_site"/></body>
+                            <joint axis="0 1 0" name="FF_ADB" class="ADB"/>
+                            <geom euler="-1.57 3.14 -1.57" mesh="knuckle"/>
+                            <geom euler="1.57 -1.57 0" mesh="motor" pos="0 0 0.037"/>
+                            <geom class="vis_metal" pos="0 0 0.021" size="0.015 0.021 0.002" type="box" mass=".003"/>
+                            <geom class="vis_metal" pos="0 0.02 0.01" size="0.015 0.001 0.014" type="box" mass=".001"/>
+                            <geom class="vis_metal" pos="0 -0.02 0.01" size="0.015 0.001 0.014" type="box" mass=".001"/>
+                            <geom name="FF_proximal" class="phys_metal" pos="0 0.003 0.037" size="0.018 0.024 0.015" type="box" mass=".086"/>
+                            <body name="FF_proximal" pos="0 -0.009 0.037">
+                            <joint axis="1 0 0" name="FF_MCP" class="MCP"/>
+                            <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.012"/>
+                            <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.012"/>
+                            <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.0445"/>
+                            <geom class="vis_metal" pos="0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                            <geom class="vis_metal" pos="-0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                            <geom name="FF_middle" class="phys_metal" pos="0 0 0.041" size="0.018 0.015 0.024" type="box" mass=".086"/>
+                            <body name="FF_middle" pos="0 0 0.054">
+                                <body name="ffmiddle_point"> <geom name="ffmiddle_point" class="vis_site"/></body>
+                                <joint axis="1 0 0" name="FF_PIP" class="PIP"/>
+                                <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.0436"/>
+                                <geom class="vis_metal" pos="0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="FF_distal" class="phys_metal" pos="0 0 0.041" size="0.018 0.015 0.024" type="box" mass=".086"/>
+                                <body name="FF_distal" pos="0 0 0.052">
+                                <joint axis="1 0 0" name="FF_DIP" class="DIP"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.012"/>
+                                <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.012"/>
+                                <geom material="visual_blue" euler="1.57 0 1.57" mesh="finger" pos="0 0 0.04"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="FF_tip" class="phys_metal" pos="0 0 0.045" size="0.019" type="sphere" mass=".01"/>
+                                <geom class="phys_metal" pos="0 0 0.033" size="0.019 .01" type="cylinder" mass=".007"/>
+                                <geom class="phys_metal" pos="0 0 0.022" size="0.019 .018 .005" type="box" mass=".004"/>
+                                <site name="FFtip" type="sphere" pos="0 0 0.045" size="0.01" rgba="1 .3 .3 1"/>
+                                <body name="ffdistal_point"> <geom name="ffdistal_point" class="vis_site" pos="0 0 0.045"/></body>
+                                </body>
+                            </body>
+                            </body>
+                        </body>
+                        <!-- MIDDLE FINGER -->
+                        <body name="MF_metacarpel" pos="0.012 0 0.121">
+                            <body name="mfknuckle_point"> <geom name="mfknuckle_point" class="vis_site"/></body>
+                            <joint axis="0 1 0" name="MF_ADB" class="ADB"/>
+                            <geom euler="-1.57 3.14 -1.57" mesh="knuckle"/>
+                            <geom euler="1.57 -1.57 0" mesh="motor" pos="0 0 0.037"/>
+                            <geom class="vis_metal" pos="0 0 0.021" size="0.015 0.021 0.002" type="box" mass=".003"/>
+                            <geom class="vis_metal" pos="0 0.02 0.01" size="0.015 0.001 0.014" type="box" mass=".001"/>
+                            <geom class="vis_metal" pos="0 -0.02 0.01" size="0.015 0.001 0.014" type="box" mass=".001"/>
+                            <geom name="MF_proximal" class="phys_metal" pos="0 0.003 0.037" size="0.018 0.024 0.015" type="box" mass=".086"/>
+                            <body name="MF_proximal" pos="0 -0.009 0.037">
+                            <joint axis="1 0 0" name="MF_MCP" class="MCP"/>
+                            <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.012"/>
+                            <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.012"/>
+                            <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.0445"/>
+                            <geom class="vis_metal" pos="0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                            <geom class="vis_metal" pos="-0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                            <geom name="MF_middle" class="phys_metal" pos="0 0 0.041" size="0.018 0.015 0.024" type="box" mass=".086"/>
+                            <body name="MF_middle" pos="0 0 0.054">
+                                <body name="mfmiddle_point"> <geom name="mfmiddle_point" class="vis_site"/></body>
+                                <joint axis="1 0 0" name="MF_PIP" class="PIP"/>
+                                <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.0436"/>
+                                <geom class="vis_metal" pos="0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="MF_distal" class="phys_metal" pos="0 0 0.041" size="0.018 0.015 0.024" type="box" mass=".086"/>
+                                <body name="MF_distal" pos="0 0 0.052">
+                                <joint axis="1 0 0" name="MF_DIP" class="DIP"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.012"/>
+                                <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.012"/>
+                                <geom material="visual_blue" euler="1.57 0 1.57" mesh="finger" pos="0 0 0.04"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="MF_tip" class="phys_metal" pos="0 0 0.045" size="0.019" type="sphere" mass=".01"/>
+                                <geom class="phys_metal" pos="0 0 0.033" size="0.019 .01" type="cylinder" mass=".007"/>
+                                <geom class="phys_metal" pos="0 0 0.022" size="0.019 .018 .005" type="box" mass=".004"/>
+                                <site name="MFtip" type="sphere" pos="0 0 0.045" size="0.01" rgba=".3 1 .3 1"/>
+                                <body name="mfdistal_point"> <geom name="mfdistal_point" pos="0 0 0.045" class="vis_site"/></body>
+                                </body>
+                            </body>
+                            </body>
+                        </body>
+                        <!-- PINKY FINGER -->
+                        <body euler="0 -0.087 0" name="PF_metacarpel" pos="-0.043 0 0.12">
+                            <body name="pfknuckle_point"> <geom name="pfknuckle_point" class="vis_site"/></body>
+                            <joint axis="0 1 0" name="PF_ADB" class="ADB"/>
+                            <geom euler="-1.57 3.14 -1.57" mesh="knuckle"/>
+                            <geom euler="1.57 -1.57 0" mesh="motor" pos="0 0 0.037"/>
+                            <geom class="vis_metal" pos="0 0 0.021" size="0.015 0.021 0.002" type="box" mass=".003"/>
+                            <geom class="vis_metal" pos="0 0.02 0.01" size="0.015 0.001 0.014" type="box" mass=".001"/>
+                            <geom class="vis_metal" pos="0 -0.02 0.01" size="0.015 0.001 0.014" type="box" mass=".001"/>
+                            <geom name="PF_proximal" class="phys_metal" pos="0 0.003 0.037" size="0.018 0.024 0.015" type="box" mass=".086"/>
+                            <body name="PF_proximal" pos="0 -0.009 0.037">
+                            <joint axis="1 0 0" name="PF_MCP" class="MCP"/>
+                            <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.012"/>
+                            <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.012"/>
+                            <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.0445"/>
+                            <geom class="vis_metal" pos="0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                            <geom class="vis_metal" pos="-0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                            <geom name="PF_middle" class="phys_metal" pos="0 0 0.041" size="0.018 0.015 0.024" type="box" mass=".086"/>
+                            <body name="PF_middle" pos="0 0 0.054">
+                                <body name="pfmiddle_point"> <geom name="pfmiddle_point" class="vis_site"/></body>
+                                <joint axis="1 0 0" name="PF_PIP" class="PIP"/>
+                                <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.0436"/>
+                                <geom class="vis_metal" pos="0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.012" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="PF_distal" class="phys_metal" pos="0 0 0.041" size="0.018 0.015 0.024" type="box" mass=".086"/>
+                                <body name="PF_distal" pos="0 0 0.052">
+                                <joint axis="1 0 0" name="PF_DIP" class="DIP"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.012"/>
+                                <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.012"/>
+                                <geom material="visual_blue" euler="1.57 0 1.57" mesh="finger" pos="0 0 0.04"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="PF_tip" class="phys_metal" pos="0 0 0.045" size="0.019" type="sphere" mass=".01"/>
+                                <geom class="phys_metal" pos="0 0 0.033" size="0.019 .01" type="cylinder" mass=".007"/>
+                                <geom class="phys_metal" pos="0 0 0.022" size="0.019 .018 .005" type="box" mass=".004"/>
+                                <site name="PFtip" type="sphere" pos="0 0 0.045" size="0.01" rgba=".3 .3 1 1"/>
+                                <body name="pfdistal_point"> <geom name="pfdistal_point" pos="0 0 0.045" class="vis_site"/></body>
+                                </body>
+                            </body>
+                            </body>
+                        </body>
+                        <!-- THUMB -->
+                        <body euler="0 1.658 0" name="TF" pos="0.055 0 0.04">
+                            <body name="tfknuckle_point"> <geom name="tfknuckle_point" class="vis_site"/></body>
+                            <joint axis="1 0 0" name="TF_MCP" class="MCP"/>
+                            <geom euler="0 0 3.14" mesh="motor" pos="0.009 0 0.052"/>
+                            <geom euler="-3.14 -1.57 0" mesh="motor" pos="0.006 0 0.009"/>
+                            <geom material="visual_chrome" euler="1.57 0 1.57" mesh="thumb_bracket" pos="0.015 0.016 0.031"/>
+                            <geom material="visual_chrome" euler="1.57 0 1.57" mesh="thumb_bracket" pos="0.015 -0.016 0.031"/>
+                            <geom class="phys_metal" pos="0.006 0 0.012" size="0.018 0.018 0.024" type="box" mass=".092"/>
+                            <geom name="TF_metacarpel" class="phys_metal" pos="0.012 0 0.052" size="0.024 0.018 0.017" type="box" mass=".092"/>
+                            <body name="TF_metacarpel" pos="0 0 0.072">
+                            <joint axis="0 0 1" name="TF_ADB" range="-2.57 .57"/>
+                            <geom euler="1.57 0 1.57" mesh="bracket1" pos="0 0 0.0015"/>
+                            <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.031"/>
+                            <geom class="phys_metal" pos="0 0 0.028" size="0.018 0.015 0.024" type="box"/>
+                            <geom name="TF_middle" class="vis_metal" pos="0 0 0.005" size="0.019 0.014 0.006" type="box"/>
+                            <body name="TF_middle" pos="0 0 0.0405">
+                                <body name="tfmiddle_point"> <geom name="tfmiddle_point" class="vis_site"/></body>
+                                <joint axis="1 0 0" name="TF_PIP" class="PIP"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.011"/>
+                                <geom euler="3.14 1.57 0" mesh="bracket2" pos="0.017 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="motor" pos="0 0 0.044"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="TF_distal" class="phys_metal" pos="0 0 0.041" size="0.018 0.015 0.024" type="box" mass=".086"/>
+                                <body name="TF_distal" pos="0 0 0.0535">
+                                <joint axis="1 0 0" name="TF_DIP" class="DIP"/>
+                                <geom euler="3.14 1.57 0" mesh="bracket2" pos="0.017 0 0.011"/>
+                                <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.018 0 0.011"/>
+                                <geom material="visual_blue" euler="1.57 0 1.57" mesh="finger" pos="0 0 0.04"/>
+                                <geom class="vis_metal" pos="-0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom class="vis_metal" pos="0.02 0 0.011" size="0.0015 0.015 0.014" type="box" mass=".003"/>
+                                <geom name="TF_tip" class="phys_metal" pos="0 0 0.045" size="0.019" type="sphere" mass=".01"/>
+                                <geom class="phys_metal" pos="0 0 0.033" size="0.019 .01" type="cylinder" mass=".007"/>
+                                <geom class="phys_metal" pos="0 0 0.022" size="0.019 .018 .005" type="box" mass=".004"/>
+                                <site name="TFtip" type="sphere" pos="0 0 0.045" size="0.01" rgba="1 1 .3 1"/>
+                                <body name="tfdistal_point"> <geom name="tfdistal_point" pos="0 0 0.045" class="vis_site"/></body>
+                                </body>
+                            </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+    
+    <contact>
+        <pair geom1="MF_proximal" geom2="FF_proximal" condim="1" />
+        <pair geom1="MF_middle" geom2="FF_middle" condim="1" />
+        <pair geom1="MF_distal" geom2="FF_distal" condim="1" />
+        <pair geom1="MF_tip" geom2="FF_tip" condim="1" />
+        <pair geom1="MF_proximal" geom2="PF_proximal" condim="1" />
+        <pair geom1="MF_middle" geom2="PF_middle" condim="1" />
+        <pair geom1="MF_distal" geom2="PF_distal" condim="1" />
+        <pair geom1="MF_tip" geom2="PF_tip" condim="1" />
+        <pair geom1="TF_tip" geom2="FF_tip" condim="1" />
+        <pair geom1="TF_tip" geom2="FF_distal" condim="1" />
+        <pair geom1="TF_distal" geom2="FF_tip" condim="1" />
+        <pair geom1="TF_distal" geom2="FF_distal" condim="1" />
+        <pair geom1="TF_tip" geom2="MF_tip" condim="1" />
+        <pair geom1="TF_tip" geom2="MF_distal" condim="1" />
+        <pair geom1="TF_distal" geom2="MF_tip" condim="1" />
+        <pair geom1="TF_distal" geom2="MF_distal" condim="1" />
+        <pair geom1="TF_tip" geom2="PF_tip" condim="1" />
+        <pair geom1="TF_tip" geom2="PF_distal" condim="1" />
+        <pair geom1="TF_distal" geom2="PF_tip" condim="1" />
+        <pair geom1="TF_distal" geom2="PF_distal" condim="1" />
+        <pair geom1="TF_middle" geom2="FF_tip" condim="1" />
+        <pair geom1="TF_metacarpel" geom2="FF_tip" condim="1" />
+        <pair geom1="TF_tip" geom2="palm_1" condim="1" />
+        <pair geom1="TF_tip" geom2="palm_2" condim="1" />
+        <pair geom1="TF_tip" geom2="palm_3" condim="1" />
+        <pair geom1="TF_tip" geom2="palm_4" condim="1" />
+        <pair geom1="TF_tip" geom2="palm_5" condim="1" />
+        <pair geom1="TF_tip" geom2="palm_6" condim="1" />
+        <pair geom1="FF_tip" geom2="palm_1" condim="1" />
+        <pair geom1="FF_tip" geom2="palm_2" condim="1" />
+        <pair geom1="FF_tip" geom2="palm_3" condim="1" />
+        <pair geom1="FF_tip" geom2="palm_4" condim="1" />
+        <pair geom1="FF_tip" geom2="palm_5" condim="1" />
+        <pair geom1="FF_tip" geom2="palm_6" condim="1" />
+        <pair geom1="MF_tip" geom2="palm_1" condim="1" />
+        <pair geom1="MF_tip" geom2="palm_2" condim="1" />
+        <pair geom1="MF_tip" geom2="palm_3" condim="1" />
+        <pair geom1="MF_tip" geom2="palm_4" condim="1" />
+        <pair geom1="MF_tip" geom2="palm_5" condim="1" />
+        <pair geom1="MF_tip" geom2="palm_6" condim="1" />
+        <pair geom1="PF_tip" geom2="palm_1" condim="1" />
+        <pair geom1="PF_tip" geom2="palm_2" condim="1" />
+        <pair geom1="PF_tip" geom2="palm_3" condim="1" />
+        <pair geom1="PF_tip" geom2="palm_4" condim="1" />
+        <pair geom1="PF_tip" geom2="palm_5" condim="1" />
+        <pair geom1="PF_tip" geom2="palm_6" condim="1" />
+    </contact>
+
+</mujoco>

@@ -1,0 +1,20 @@
+<mujoco model='dmanus'>
+    <actuator>
+        <position name="A_ARTx" joint="ARTx" ctrllimited="true" ctrlrange="-0.25 0.25" kp="50" />
+        <position name="A_ARTy" joint="ARTy" ctrllimited="true" ctrlrange="-0.2 0.1" kp="50" />
+        <position name="A_ARTz" joint="ARTz" ctrllimited="true" ctrlrange="-0.3 0.5" kp="50" />
+        <position name="A_ARRx" joint="ARRx" ctrllimited="true" ctrlrange="-1.75 1.75" kp="25" />
+        <position name="A_ARRy" joint="ARRy" ctrllimited="true" ctrlrange="-1.75 1.75" kp="25" />
+        <position name="A_ARRz" joint="ARRz" ctrllimited="true" ctrlrange="-2.5 2.5" kp="25" />
+        <position joint="TFJ1" name="TFA1" kp="10" ctrllimited="true" ctrlrange="-0.75 0.57"/>
+        <position joint="TFJ2" name="TFA2" kp="10" ctrllimited="true" ctrlrange="0 1.89"/>
+        <position joint="TFJ2e" name="TFA2e" kp="10" ctrllimited="true" ctrlrange="0 1.40"/>
+        <position joint="TFJ3" name="TFA3" kp="10" ctrllimited="true" ctrlrange="0.0 1.57"/>
+        <position joint="IFJ1" name="IFA1" kp="10" ctrllimited="true" ctrlrange="-0.436 0.436"/>
+        <position joint="IFJ2" name="IFA2" kp="10" ctrllimited="true" ctrlrange="0.0 1.71"/>
+        <position joint="IFJ3" name="IFA3" kp="10" ctrllimited="true" ctrlrange="0.0 1.52"/>
+        <position joint="LFJ1" name="LFA1" kp="10" ctrllimited="true" ctrlrange="-0.52 0.35"/>
+        <position joint="LFJ2" name="LFA2" kp="10" ctrllimited="true" ctrlrange="0.0 1.54"/>
+        <position joint="LFJ3" name="LFA3" kp="10" ctrllimited="true" ctrlrange="0.0 1.48"/>
+    </actuator>
+</mujoco>

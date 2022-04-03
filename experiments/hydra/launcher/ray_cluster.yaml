@@ -1,0 +1,10 @@
+defaults:
+  - ray
+
+ray:
+  init:
+    address: localhost:6379
+    _redis_password: local
+  remote:
+    num_cpus: 24
+    num_gpus: 0.5

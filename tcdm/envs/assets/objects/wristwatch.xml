@@ -1,0 +1,38 @@
+
+<mujoco model="wristwatch">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="wristwatch" file="../meshes/objects/wristwatch/wristwatch.stl"  />
+        <mesh name="contact0" file="../meshes/objects/wristwatch/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/wristwatch/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/wristwatch/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/wristwatch/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/wristwatch/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/wristwatch/contact5.stl"  />
+        <mesh name="contact6" file="../meshes/objects/wristwatch/contact6.stl"  />
+        <mesh name="contact7" file="../meshes/objects/wristwatch/contact7.stl"  />
+        <mesh name="contact8" file="../meshes/objects/wristwatch/contact8.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="wristwatch_visual" class="object_visual" mesh="wristwatch" rgba="1 0 0 1.0" />
+            <geom name="wristwatch_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="wristwatch_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="wristwatch_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="wristwatch_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="wristwatch_contact4" class="object_contact" mesh="contact4"  />
+            <geom name="wristwatch_contact5" class="object_contact" mesh="contact5"  />
+            <geom name="wristwatch_contact6" class="object_contact" mesh="contact6"  />
+            <geom name="wristwatch_contact7" class="object_contact" mesh="contact7"  />
+            <geom name="wristwatch_contact8" class="object_contact" mesh="contact8"  />
+        </body>
+    </worldbody>
+</mujoco>

@@ -1,0 +1,20 @@
+adroit:
+  BODIES: ['wrist_point', 'ffknuckle_point', 'ffmiddle_point', 'ffdistal_point', 
+          'mfknuckle_point', 'mfmiddle_point', 'mfdistal_point', 'lfknuckle_point', 
+          'lfmiddle_point', 'lfdistal_point', 'rfknuckle_point', 'rfmiddle_point', 
+          'rfdistal_point', 'thknuckle_point', 'thmiddle_point', 'thdistal_point']
+  FINGERTIP_INDICES: [3, 6, 9, 12, 15]
+dhand:
+  BODIES: ['wrist_point', 'ffknuckle_point', 'ffmiddle_point', 'ffdistal_point', 
+          'mfknuckle_point', 'mfmiddle_point', 'mfdistal_point', 'pfknuckle_point', 
+          'pfmiddle_point', 'pfdistal_point', 'tfknuckle_point', 'tfmiddle_point', 
+          'tfdistal_point']
+  FINGERTIP_INDICES: [3, 6, 9, 12]
+dmanus:
+  BODIES: ['wrist_point', 'ffknuckle_point', 'ffmiddle_point', 'ffdistal_point',
+           'rfknuckle_point', 'rfmiddle_point', 'rfdistal_point','thknuckle_point',
+            'thmiddle_point', 'thdistal_point']
+  FINGERTIP_INDICES: [3,6,9]
+franka:
+  BODIES: ['end_effector']
+  FINGERTIP_INDICES: [0]

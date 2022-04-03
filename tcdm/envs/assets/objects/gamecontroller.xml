@@ -1,0 +1,40 @@
+
+<mujoco model="gamecontroller">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="gamecontroller" file="../meshes/objects/gamecontroller/gamecontroller.stl"  />
+        <mesh name="contact0" file="../meshes/objects/gamecontroller/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/gamecontroller/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/gamecontroller/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/gamecontroller/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/gamecontroller/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/gamecontroller/contact5.stl"  />
+        <mesh name="contact6" file="../meshes/objects/gamecontroller/contact6.stl"  />
+        <mesh name="contact7" file="../meshes/objects/gamecontroller/contact7.stl"  />
+        <mesh name="contact8" file="../meshes/objects/gamecontroller/contact8.stl"  />
+        <mesh name="contact9" file="../meshes/objects/gamecontroller/contact9.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="gamecontroller_visual" class="object_visual" mesh="gamecontroller" rgba="1 0 0 1.0" />
+            <geom name="gamecontroller_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="gamecontroller_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="gamecontroller_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="gamecontroller_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="gamecontroller_contact4" class="object_contact" mesh="contact4"  />
+            <geom name="gamecontroller_contact5" class="object_contact" mesh="contact5"  />
+            <geom name="gamecontroller_contact6" class="object_contact" mesh="contact6"  />
+            <geom name="gamecontroller_contact7" class="object_contact" mesh="contact7"  />
+            <geom name="gamecontroller_contact8" class="object_contact" mesh="contact8"  />
+            <geom name="gamecontroller_contact9" class="object_contact" mesh="contact9"  />
+        </body>
+    </worldbody>
+</mujoco>

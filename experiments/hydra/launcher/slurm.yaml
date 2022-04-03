@@ -1,0 +1,10 @@
+defaults:
+  - submitit_slurm
+
+timeout_min: 1440
+partition: learnlab
+gpus_per_node: 1
+cpus_per_task: 40
+mem_gb: 60
+nodes: 1
+constraint: pascal|volta

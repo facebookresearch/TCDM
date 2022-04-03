@@ -1,0 +1,32 @@
+<mujoco>
+    <compiler angle="radian" />
+
+    <asset>
+        <material name="MatObject" specular="0.75" shininess="0.1" reflectance="0.5" rgba="0.9 0.7 0.5 1" />
+    </asset>
+
+    <default>
+        <joint limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+        <geom friction="1 0.5 0.01" margin="0.0005" density="1250" />
+        <site size="0.005 0 0" rgba="0.4 0.9 0.4 1" />
+        <general ctrllimited="true" ctrlrange="-1 1" />
+        <tendon limited="true" />
+        
+        <default class="object_visual">
+            <geom type="mesh" contype="0" conaffinity="0" mass="0" group="1" material="MatObject" /> 
+        </default>
+
+        <default class="object_contact">
+            <geom type="mesh" density="1250" condim="4" rgba="0 1 0 0" />
+        </default>
+        
+        <default class="freejoint">
+            <joint limited="false" damping="0"/>
+        </default>
+    </default>
+
+    <visual>
+        <!-- free camera attributes -->
+        <global fovy="25" />
+    </visual>
+</mujoco>

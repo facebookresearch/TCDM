@@ -1,0 +1,32 @@
+defaults:
+  - agent: ppo
+  - env: pgdm
+  - override hydra/launcher: slurm
+  - _self_
+
+hydra:
+  sweep:
+    dir: ${env:HOME}/checkpoints/${exp_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${wandb.sweep_name_prefix}-${hydra.job.num}
+
+exp_name: MimicTrainer
+id: ${hydra.job.id}
+resume_model: null
+total_timesteps: 50000000
+n_envs: 32
+n_eval_envs: 5
+eval_freq: 1000000
+vid_freq: null
+save_freq: 10000000
+restore_checkpoint_freq: 500000
+seed: 0
+
+checkpoints:
+  save_freq: 4000000
+  save_path: './models/'
+  name_prefix: 'rl_model'
+
+wandb:
+  project: dummy_proj
+  group: ${exp_name}
+  sweep_name_prefix: run

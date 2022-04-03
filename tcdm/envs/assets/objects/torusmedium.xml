@@ -1,0 +1,30 @@
+
+<mujoco model="torusmedium">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="torusmedium" file="../meshes/objects/torusmedium/torusmedium.stl"  />
+        <mesh name="contact0" file="../meshes/objects/torusmedium/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/torusmedium/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/torusmedium/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/torusmedium/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/torusmedium/contact4.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="torusmedium_visual" class="object_visual" mesh="torusmedium" rgba="1 0 0 1.0" />
+            <geom name="torusmedium_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="torusmedium_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="torusmedium_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="torusmedium_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="torusmedium_contact4" class="object_contact" mesh="contact4"  />
+        </body>
+    </worldbody>
+</mujoco>

@@ -1,0 +1,21 @@
+name: hammer-use1                                   # environment name formatted as 'domain-task'
+task_kwargs:                                        # task keywords
+  append_time: True                                 # append time phase variables to state
+  pregrasp: initialized                             # initialization method for PreGrasp (e.g. state, planner, etc.)  
+  reward_kwargs:                                    # parameters for object mimic reward
+    obj_err_scale: 50
+    object_reward_scale: 10.0
+    lift_bonus_thresh: 0.02
+    lift_bonus_mag: 2.5
+    obj_com_term: 0.25
+    n_envs: ${n_envs}
+    obj_reward_ramp: 0
+    obj_reward_start: 0
+env_kwargs: {}                                      # environment keyworks
+info_keywords: ['obj_err', 'obj_success',
+                'step_obj_err', 'time_frac',
+                'obj_err_scale']
+state_keyword: state
+n_envs: ${n_envs}
+vid_freq: ${vid_freq}
+vid_length: 100

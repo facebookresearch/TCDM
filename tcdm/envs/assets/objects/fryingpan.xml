@@ -1,0 +1,66 @@
+
+<mujoco model="fryingpan">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="fryingpan" file="../meshes/objects/fryingpan/fryingpan.stl"  />
+        <mesh name="contact0" file="../meshes/objects/fryingpan/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/fryingpan/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/fryingpan/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/fryingpan/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/fryingpan/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/fryingpan/contact5.stl"  />
+        <mesh name="contact6" file="../meshes/objects/fryingpan/contact6.stl"  />
+        <mesh name="contact7" file="../meshes/objects/fryingpan/contact7.stl"  />
+        <mesh name="contact8" file="../meshes/objects/fryingpan/contact8.stl"  />
+        <mesh name="contact9" file="../meshes/objects/fryingpan/contact9.stl"  />
+        <mesh name="contact10" file="../meshes/objects/fryingpan/contact10.stl"  />
+        <mesh name="contact11" file="../meshes/objects/fryingpan/contact11.stl"  />
+        <mesh name="contact12" file="../meshes/objects/fryingpan/contact12.stl"  />
+        <mesh name="contact13" file="../meshes/objects/fryingpan/contact13.stl"  />
+        <mesh name="contact14" file="../meshes/objects/fryingpan/contact14.stl"  />
+        <mesh name="contact15" file="../meshes/objects/fryingpan/contact15.stl"  />
+        <mesh name="contact16" file="../meshes/objects/fryingpan/contact16.stl"  />
+        <mesh name="contact17" file="../meshes/objects/fryingpan/contact17.stl"  />
+        <mesh name="contact18" file="../meshes/objects/fryingpan/contact18.stl"  />
+        <mesh name="contact19" file="../meshes/objects/fryingpan/contact19.stl"  />
+        <mesh name="contact20" file="../meshes/objects/fryingpan/contact20.stl"  />
+        <mesh name="contact21" file="../meshes/objects/fryingpan/contact21.stl"  />
+        <mesh name="contact22" file="../meshes/objects/fryingpan/contact22.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="fryingpan_visual" class="object_visual" mesh="fryingpan" rgba="0.1 0.1 0.1 1.0" />
+            <geom name="fryingpan_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="fryingpan_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="fryingpan_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="fryingpan_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="fryingpan_contact4" class="object_contact" mesh="contact4"  />
+            <geom name="fryingpan_contact5" class="object_contact" mesh="contact5"  />
+            <geom name="fryingpan_contact6" class="object_contact" mesh="contact6"  />
+            <geom name="fryingpan_contact7" class="object_contact" mesh="contact7"  />
+            <geom name="fryingpan_contact8" class="object_contact" mesh="contact8"  />
+            <geom name="fryingpan_contact9" class="object_contact" mesh="contact9"  />
+            <geom name="fryingpan_contact10" class="object_contact" mesh="contact10"  />
+            <geom name="fryingpan_contact11" class="object_contact" mesh="contact11"  />
+            <geom name="fryingpan_contact12" class="object_contact" mesh="contact12"  />
+            <geom name="fryingpan_contact13" class="object_contact" mesh="contact13"  />
+            <geom name="fryingpan_contact14" class="object_contact" mesh="contact14"  />
+            <geom name="fryingpan_contact15" class="object_contact" mesh="contact15"  />
+            <geom name="fryingpan_contact16" class="object_contact" mesh="contact16"  />
+            <geom name="fryingpan_contact17" class="object_contact" mesh="contact17"  />
+            <geom name="fryingpan_contact18" class="object_contact" mesh="contact18"  />
+            <geom name="fryingpan_contact19" class="object_contact" mesh="contact19"  />
+            <geom name="fryingpan_contact20" class="object_contact" mesh="contact20"  />
+            <geom name="fryingpan_contact21" class="object_contact" mesh="contact21"  />
+            <geom name="fryingpan_contact22" class="object_contact" mesh="contact22"  />
+        </body>
+    </worldbody>
+</mujoco>

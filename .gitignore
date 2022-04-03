@@ -1,0 +1,17 @@
+MUJOCO_LOG.TXT
+*.egg-info/
+__pycache__
+log_*
+slurm-*
+*.mp4
+*.gif
+.DS_Store
+*.vscode
+*.pyc
+data/*
+outputs/*
+multirun/*
+*.swp
+wandb/*
+scratch/*
+pretrained_agents/*

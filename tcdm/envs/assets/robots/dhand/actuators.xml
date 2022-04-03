@@ -1,0 +1,28 @@
+<mujoco model='dhand'>
+    <actuator>
+        <position name="A_ARTx" joint="ARTx" ctrllimited="true" ctrlrange="-0.25 0.25" kp="175" />
+        <position name="A_ARTy" joint="ARTy" ctrllimited="true" ctrlrange="-0.2 0.1" kp="175" />
+        <position name="A_ARTz" joint="ARTz" ctrllimited="true" ctrlrange="-0.3 0.5" kp="175" />
+        <position name="A_ARRx" joint="ARRx" ctrllimited="true" ctrlrange="-1.75 1.75" kp="150" />
+        <position name="A_ARRy" joint="ARRy" ctrllimited="true" ctrlrange="-1.75 1.75" kp="150" />
+        <position name="A_ARRz" joint="ARRz" ctrllimited="true" ctrlrange="-2.5 2.5" kp="150" />
+        <position joint="WR_ADB" class="WR" name="WR_ADB" ctrlrange="-0.436 0.436"/>
+        <position joint="WR_UD" class="WR" name="WR_UD" ctrlrange="-0.436 0.436"/>
+        <position joint="FF_ADB" name="FF_ADB" class="ADB"/>
+        <position joint="FF_MCP" name="FF_MCP" class="MCP"/>
+        <position joint="FF_PIP" name="FF_PIP" class="PIP"/>
+        <position joint="FF_DIP" name="FF_DIP" class="DIP"/>
+        <position joint="MF_ADB" name="MF_ADB" class="ADB"/>
+        <position joint="MF_MCP" name="MF_MCP" class="MCP"/>
+        <position joint="MF_PIP" name="MF_PIP" class="PIP"/>
+        <position joint="MF_DIP" name="MF_DIP" class="DIP"/>
+        <position joint="PF_ADB" name="PF_ADB" class="ADB"/>
+        <position joint="PF_MCP" name="PF_MCP" class="MCP"/>
+        <position joint="PF_PIP" name="PF_PIP" class="PIP"/>
+        <position joint="PF_DIP" name="PF_DIP" class="DIP"/>
+        <position joint="TF_MCP" name="TF_MCP" class="MCP"/>
+        <position joint="TF_ADB" name="TF_ADB" class="ADB" ctrlrange="-2.57 .57"/>
+        <position joint="TF_PIP" name="TF_PIP" class="PIP"/>
+        <position joint="TF_DIP" name="TF_DIP" class="DIP"/>
+    </actuator>
+</mujoco>

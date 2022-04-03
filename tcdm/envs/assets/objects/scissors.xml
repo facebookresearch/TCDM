@@ -1,0 +1,48 @@
+
+<mujoco model="scissors">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="scissors" file="../meshes/objects/scissors/scissors.stl"  />
+        <mesh name="contact0" file="../meshes/objects/scissors/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/scissors/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/scissors/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/scissors/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/scissors/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/scissors/contact5.stl"  />
+        <mesh name="contact6" file="../meshes/objects/scissors/contact6.stl"  />
+        <mesh name="contact7" file="../meshes/objects/scissors/contact7.stl"  />
+        <mesh name="contact8" file="../meshes/objects/scissors/contact8.stl"  />
+        <mesh name="contact9" file="../meshes/objects/scissors/contact9.stl"  />
+        <mesh name="contact10" file="../meshes/objects/scissors/contact10.stl"  />
+        <mesh name="contact11" file="../meshes/objects/scissors/contact11.stl"  />
+        <mesh name="contact12" file="../meshes/objects/scissors/contact12.stl"  />
+        <mesh name="contact13" file="../meshes/objects/scissors/contact13.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="scissors_visual" class="object_visual" mesh="scissors" rgba="1 0 0 0.0" />
+            <geom name="scissors_contact0" class="object_contact" mesh="contact0" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact1" class="object_contact" mesh="contact1" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact2" class="object_contact" mesh="contact2" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact3" class="object_contact" mesh="contact3" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact4" class="object_contact" mesh="contact4" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact5" class="object_contact" mesh="contact5" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact6" class="object_contact" mesh="contact6" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact7" class="object_contact" mesh="contact7" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact8" class="object_contact" mesh="contact8" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact9" class="object_contact" mesh="contact9" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact10" class="object_contact" mesh="contact10" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact11" class="object_contact" mesh="contact11" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact12" class="object_contact" mesh="contact12" rgba="0 0.4 0 1" />
+            <geom name="scissors_contact13" class="object_contact" mesh="contact13" rgba="0.75 0.75 0.75 1" />
+        </body>
+    </worldbody>
+</mujoco>

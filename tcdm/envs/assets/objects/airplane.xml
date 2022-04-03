@@ -1,0 +1,36 @@
+
+<mujoco model="airplane">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="airplane" file="../meshes/objects/airplane/airplane.stl"  />
+        <mesh name="contact0" file="../meshes/objects/airplane/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/airplane/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/airplane/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/airplane/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/airplane/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/airplane/contact5.stl"  />
+        <mesh name="contact6" file="../meshes/objects/airplane/contact6.stl"  />
+        <mesh name="contact7" file="../meshes/objects/airplane/contact7.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="airplane_visual" class="object_visual" mesh="airplane" rgba="1 1 1 1.0" />
+            <geom name="airplane_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="airplane_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="airplane_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="airplane_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="airplane_contact4" class="object_contact" mesh="contact4"  />
+            <geom name="airplane_contact5" class="object_contact" mesh="contact5"  />
+            <geom name="airplane_contact6" class="object_contact" mesh="contact6"  />
+            <geom name="airplane_contact7" class="object_contact" mesh="contact7"  />
+        </body>
+    </worldbody>
+</mujoco>

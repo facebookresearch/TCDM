@@ -1,0 +1,18 @@
+name: PPO                                                   # algorithm name
+multi_proc: True                                            # whether to use multi_processing or not
+params:
+  gamma: 0.95                                               # discount factor
+  gae_lambda: 0.95                                          # GAE parameter
+  learning_rate: 1e-5                                       # learning rate for optimizer
+  ent_coef: 0.001                                           # PPO Entropy coefficient
+  vf_coef: 0.5                                              # Added multiplier on Value Function Loss
+  clip_range: 0.2                                           # PPO Clip parameter
+  n_steps: 4096                                             # Number of timesteps to collect per iteration (e.g. global batch) 
+  batch_size: 256                                           # Minibatch size for each ADAM step during PPO opt
+  n_epochs: 5                                               # Number of epochs on collected global batch per iteration
+  warm_start_mean: True                                     # Warm start mean to explore around initial position
+policy_kwargs:                                              # Policy parameters (initial STD and architecture)
+  net_arch:
+    - pi: [256, 128]
+      vf: [256, 128]
+  log_std_init: -1.60

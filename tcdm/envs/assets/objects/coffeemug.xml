@@ -1,0 +1,48 @@
+
+<mujoco model="coffeemug">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="coffeemug" file="../meshes/objects/coffeemug/coffeemug.stl"  />
+        <mesh name="contact0" file="../meshes/objects/coffeemug/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/coffeemug/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/coffeemug/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/coffeemug/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/coffeemug/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/coffeemug/contact5.stl"  />
+        <mesh name="contact6" file="../meshes/objects/coffeemug/contact6.stl"  />
+        <mesh name="contact7" file="../meshes/objects/coffeemug/contact7.stl"  />
+        <mesh name="contact8" file="../meshes/objects/coffeemug/contact8.stl"  />
+        <mesh name="contact9" file="../meshes/objects/coffeemug/contact9.stl"  />
+        <mesh name="contact10" file="../meshes/objects/coffeemug/contact10.stl"  />
+        <mesh name="contact11" file="../meshes/objects/coffeemug/contact11.stl"  />
+        <mesh name="contact12" file="../meshes/objects/coffeemug/contact12.stl"  />
+        <mesh name="contact13" file="../meshes/objects/coffeemug/contact13.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="coffeemug_visual" class="object_visual" mesh="coffeemug" rgba="1 0 0 1.0" />
+            <geom name="coffeemug_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="coffeemug_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="coffeemug_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="coffeemug_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="coffeemug_contact4" class="object_contact" mesh="contact4"  />
+            <geom name="coffeemug_contact5" class="object_contact" mesh="contact5"  />
+            <geom name="coffeemug_contact6" class="object_contact" mesh="contact6"  />
+            <geom name="coffeemug_contact7" class="object_contact" mesh="contact7"  />
+            <geom name="coffeemug_contact8" class="object_contact" mesh="contact8"  />
+            <geom name="coffeemug_contact9" class="object_contact" mesh="contact9"  />
+            <geom name="coffeemug_contact10" class="object_contact" mesh="contact10"  />
+            <geom name="coffeemug_contact11" class="object_contact" mesh="contact11"  />
+            <geom name="coffeemug_contact12" class="object_contact" mesh="contact12"  />
+            <geom name="coffeemug_contact13" class="object_contact" mesh="contact13"  />
+        </body>
+    </worldbody>
+</mujoco>

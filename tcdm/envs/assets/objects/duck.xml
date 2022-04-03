@@ -1,0 +1,21 @@
+
+<mujoco model="duck">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="duck" file="../meshes/objects/duck/duck.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="duck_visual" class="object_visual" mesh="duck" rgba="1 1 0 1.0" />
+            <geom name="duck_contact0" class="object_contact" mesh="duck" />
+        </body>
+    </worldbody>
+</mujoco>

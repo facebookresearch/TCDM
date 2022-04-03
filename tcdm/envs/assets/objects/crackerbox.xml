@@ -1,0 +1,23 @@
+
+<mujoco model="crackerbox">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="003_cracker_box" file="../meshes/YCB_sim/meshes/003_cracker_box.msh" scale="1 1 1"/>
+        <texture name="003_cracker_box" type="2d" file="../meshes/YCB_sim/textures/003_cracker_box.png"/>
+        <material name="003_cracker_box" texture="003_cracker_box"/>
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="crackerbox_visual" class="object_visual" mesh="003_cracker_box" pos="0.014 0.014 0.002" material="003_cracker_box" />
+            <geom name="crackerbox_contact0" class="object_contact" type="box" size=".033 .08 .105" pos="0 0 .105" mass="0.1453" />
+        </body>
+    </worldbody>
+</mujoco>

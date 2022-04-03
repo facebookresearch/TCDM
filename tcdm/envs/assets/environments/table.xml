@@ -1,0 +1,70 @@
+<mujoco model='table-environment'>
+    <include file='../common.xml'/>
+
+    <option iterations="20" noslip_iterations="20" timestep="0.004"/>
+    <size njmax="1000" nconmax="100" nstack="600000" />
+    <visual>
+        <global offwidth="3024" offheight="1680" />
+        <quality shadowsize="4096" offsamples="8" />
+        <map force="0.1" fogend="5" />
+    </visual>
+
+    <asset>
+        <texture name="skybox" type="skybox" builtin="gradient" rgb1=".08 .09 .10" rgb2="0 0 0" width="800" height="800" mark="random" markrgb=".8 .8 .8"/>
+        <texture name="texplane" type="2d" height="1" width="1" file="../textures/white_marble_tile2.png"/>
+        <texture name="texbrick" type="2d" height="1" width="1" file="../textures/high_contrast_brick.png"/>
+        <texture type="cube" name="granite" file="../textures/granite.png" />
+    
+        <material name="MatPlane" reflectance="0.01" texture="texplane" texrepeat="4 4" texuniform="true"/>
+        <material name="MatBrick" reflectance="0" texture="texbrick" texrepeat="1 2" texuniform="false"/>
+        <material name="granite" texture="granite" rgba="0.8 0.8 0.8 1" />
+
+        <mesh file="../meshes/scene/wall.stl" scale="0.002 0.002 0.0002"/>
+        <mesh file="../meshes/scene/skyline.stl" scale="2 2 1"/>
+    </asset>
+
+    <default>
+        <default class='scene'>
+            <geom contype="0" conaffinity="0"/>
+        </default>
+    </default>
+
+    <!-- ======= WORLD ======= -->
+    <worldbody>
+        <!-- indoor lights -->
+        <light directional="false" diffuse=".4 .4 .45" specular="0.3 0.3 0.6" pos="-6 -6 10" dir="0 0 -1"/>
+        <light directional="false" diffuse=".4 .4 .45" specular="0.3 0.3 0.6" pos="6 -6 10" dir="0 0 -1"/>
+        <light directional="false" diffuse=".6 .6 .6" specular="0.3 0.3 0.6" pos="0 0 10" dir="0 0 -1"/>
+
+        <!-- floor and outside -->
+        <geom class='scene' name="floor" pos="0 0 -1" size="10 10 .1" conaffinity="1" contype="1" type="plane" material="MatPlane" condim="3"/>
+        <geom class='scene' name="skyline" mesh="skyline" pos="0 0 -6" type="mesh" rgba=".4 .4 .4 1" material="MatBrick"/>
+
+        <!-- walls -->
+        <geom class='scene' mesh="wall" pos="0 10 -1" type="mesh" material="MatBrick"/>
+        <geom class='scene' mesh="wall" pos="0 -10 -1" type="mesh" material="MatBrick" euler="0 0 -3.14"/>
+        <geom class='scene' mesh="wall" pos="10 0 -1" type="mesh" material="MatBrick" euler="0 0 -1.57"/>
+        <geom class='scene' mesh="wall" pos="-10 0 -1" type="mesh" material="MatBrick" euler="0 0 1.57"/>
+
+        <!-- front view -->
+        <camera name="skew_side" pos="-0.6 0.7 0.8" quat="-0.33141357403559174 -0.1913417161825449 0.4619397662556433 0.8001031451912656" fovy="60"/>
+        <camera name="paper" pos="-0.6 0.6 0.6" quat="-0.33141357403559174 -0.1913417161825449 0.4619397662556433 0.8001031451912656" fovy="20"/>
+
+        <!-- Side view camera -->
+        <camera name="side" pos="0.75 0 0.8" quat="0.6532814824381883 0.27059805007309845 0.2705980500730985 0.6532814824381882" fovy="50"/>
+    
+        <!-- Camera for the VIL paper -->
+        <camera name="vil_camera" pos="0 -1.2 1.2" quat="0.92388 -0.382683 0 0" />
+ 
+        <!-- ======= TABLE ======= -->
+        <body name="table">
+            <geom name="table_contact" size="0.45 0.45 0.025" pos="0 0 -0.025" type="box" material="granite" />
+            <geom size="0.04 0.5" pos="0.4 0.4 -0.501" quat="0 1 0 0" type="cylinder" contype="0" conaffinity="0" />
+            <geom size="0.04 0.5" pos="-0.4 0.4 -0.501" quat="0 1 0 0" type="cylinder" contype="0" conaffinity="0" />
+            <geom size="0.04 0.5" pos="0.4 -0.4 -0.501" quat="0 1 0 0" type="cylinder" contype="0" conaffinity="0" />
+            <geom size="0.04 0.5" pos="-0.4 -0.4 -0.501" quat="0 1 0 0" type="cylinder" contype="0" conaffinity="0" />
+        </body>
+
+    </worldbody>
+    
+</mujoco>

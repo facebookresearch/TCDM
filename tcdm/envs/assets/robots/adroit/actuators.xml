@@ -1,0 +1,34 @@
+<mujoco model='adroit'>
+    <actuator>
+        <position name="A_ARTx" joint="ARTx" ctrllimited="true" ctrlrange="-0.25 0.25" kp="175" />
+        <position name="A_ARTy" joint="ARTy" ctrllimited="true" ctrlrange="-0.2 0.1" kp="175" />
+        <position name="A_ARTz" joint="ARTz" ctrllimited="true" ctrlrange="-0.3 0.5" kp="175" />
+        <position name="A_ARRx" joint="ARRx" ctrllimited="true" ctrlrange="-1.75 1.75" kp="150" />
+        <position name="A_ARRy" joint="ARRy" ctrllimited="true" ctrlrange="-1.75 1.75" kp="150" />
+        <position name="A_ARRz" joint="ARRz" ctrllimited="true" ctrlrange="-2.5 2.5" kp="150" />
+        <position name="A_WRJ1" joint="WRJ1" ctrllimited="true" ctrlrange="-0.524 0.175" kp="5" />
+        <position name="A_WRJ0" joint="WRJ0" ctrllimited="true" ctrlrange="-0.79 0.61" kp="5" />
+        <position name="A_FFJ3" joint="FFJ3" ctrllimited="true" ctrlrange="-0.44 0.44" kp="1.0" />
+        <position name="A_FFJ2" joint="FFJ2" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_FFJ1" joint="FFJ1" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_FFJ0" joint="FFJ0" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_MFJ3" joint="MFJ3" ctrllimited="true" ctrlrange="-0.44 0.44" kp="1.0" />
+        <position name="A_MFJ2" joint="MFJ2" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_MFJ1" joint="MFJ1" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_MFJ0" joint="MFJ0" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_RFJ3" joint="RFJ3" ctrllimited="true" ctrlrange="-0.44 0.44" kp="1.0" />
+        <position name="A_RFJ2" joint="RFJ2" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_RFJ1" joint="RFJ1" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_RFJ0" joint="RFJ0" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_LFJ4" joint="LFJ4" ctrllimited="true" ctrlrange="0 0.7" kp="1.0" />
+        <position name="A_LFJ3" joint="LFJ3" ctrllimited="true" ctrlrange="-0.44 0.44" kp="1.0" />
+        <position name="A_LFJ2" joint="LFJ2" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_LFJ1" joint="LFJ1" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_LFJ0" joint="LFJ0" ctrllimited="true" ctrlrange="0 1.6" kp="1.0" />
+        <position name="A_THJ4" joint="THJ4" ctrllimited="true" ctrlrange="-1 1" kp="1.0" />
+        <position name="A_THJ3" joint="THJ3" ctrllimited="true" ctrlrange="0 1.3" kp="1.0" />
+        <position name="A_THJ2" joint="THJ2" ctrllimited="true" ctrlrange="-0.26 0.26" kp="1.0" />
+        <position name="A_THJ1" joint="THJ1" ctrllimited="true" ctrlrange="-0.52 0.52" kp="1.0" />
+        <position name="A_THJ0" joint="THJ0" ctrllimited="true" ctrlrange="-1.571 0" kp="1.0"  />
+    </actuator>
+</mujoco>

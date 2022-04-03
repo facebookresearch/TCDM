@@ -1,0 +1,58 @@
+
+<mujoco model="eyeglasses">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="eyeglasses" file="../meshes/objects/eyeglasses/eyeglasses.stl"  />
+        <mesh name="contact0" file="../meshes/objects/eyeglasses/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/eyeglasses/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/eyeglasses/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/eyeglasses/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/eyeglasses/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/eyeglasses/contact5.stl"  />
+        <mesh name="contact6" file="../meshes/objects/eyeglasses/contact6.stl"  />
+        <mesh name="contact7" file="../meshes/objects/eyeglasses/contact7.stl"  />
+        <mesh name="contact8" file="../meshes/objects/eyeglasses/contact8.stl"  />
+        <mesh name="contact9" file="../meshes/objects/eyeglasses/contact9.stl"  />
+        <mesh name="contact10" file="../meshes/objects/eyeglasses/contact10.stl"  />
+        <mesh name="contact11" file="../meshes/objects/eyeglasses/contact11.stl"  />
+        <mesh name="contact12" file="../meshes/objects/eyeglasses/contact12.stl"  />
+        <mesh name="contact13" file="../meshes/objects/eyeglasses/contact13.stl"  />
+        <mesh name="contact14" file="../meshes/objects/eyeglasses/contact14.stl"  />
+        <mesh name="contact15" file="../meshes/objects/eyeglasses/contact15.stl"  />
+        <mesh name="contact16" file="../meshes/objects/eyeglasses/contact16.stl"  />
+        <mesh name="contact17" file="../meshes/objects/eyeglasses/contact17.stl"  />
+        <mesh name="contact18" file="../meshes/objects/eyeglasses/contact18.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="eyeglasses_visual" class="object_visual" mesh="eyeglasses" rgba="0.47 0.29 0.22 1.0" />
+            <geom name="eyeglasses_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="eyeglasses_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="eyeglasses_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="eyeglasses_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="eyeglasses_contact4" class="object_contact" mesh="contact4"  />
+            <geom name="eyeglasses_contact5" class="object_contact" mesh="contact5"  />
+            <geom name="eyeglasses_contact6" class="object_contact" mesh="contact6"  />
+            <geom name="eyeglasses_contact7" class="object_contact" mesh="contact7"  />
+            <geom name="eyeglasses_contact8" class="object_contact" mesh="contact8"  />
+            <geom name="eyeglasses_contact9" class="object_contact" mesh="contact9"  />
+            <geom name="eyeglasses_contact10" class="object_contact" mesh="contact10"  />
+            <geom name="eyeglasses_contact11" class="object_contact" mesh="contact11"  />
+            <geom name="eyeglasses_contact12" class="object_contact" mesh="contact12"  />
+            <geom name="eyeglasses_contact13" class="object_contact" mesh="contact13"  />
+            <geom name="eyeglasses_contact14" class="object_contact" mesh="contact14"  />
+            <geom name="eyeglasses_contact15" class="object_contact" mesh="contact15"  />
+            <geom name="eyeglasses_contact16" class="object_contact" mesh="contact16"  />
+            <geom name="eyeglasses_contact17" class="object_contact" mesh="contact17"  />
+            <geom name="eyeglasses_contact18" class="object_contact" mesh="contact18"  />
+        </body>
+    </worldbody>
+</mujoco>

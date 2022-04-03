@@ -1,0 +1,15 @@
+hydra-core==1.1
+hydra-ray-launcher==0.1.3
+hydra-submitit-launcher
+pyquaternion
+dm-control==1.0.1
+mujoco==2.1.5
+tqdm
+gym==0.18.3
+opencv-python
+seaborn
+stable-baselines3==1.1.0
+wandb
+imageio
+imageio-ffmpeg
+tensorboard

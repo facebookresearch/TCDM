@@ -1,0 +1,32 @@
+
+<mujoco model="stanfordbunny">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="stanfordbunny" file="../meshes/objects/stanfordbunny/stanfordbunny.stl"  />
+        <mesh name="contact0" file="../meshes/objects/stanfordbunny/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/stanfordbunny/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/stanfordbunny/contact2.stl"  />
+        <mesh name="contact3" file="../meshes/objects/stanfordbunny/contact3.stl"  />
+        <mesh name="contact4" file="../meshes/objects/stanfordbunny/contact4.stl"  />
+        <mesh name="contact5" file="../meshes/objects/stanfordbunny/contact5.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="stanfordbunny_visual" class="object_visual" mesh="stanfordbunny" rgba="0.8 0.8 0.8 1.0" />
+            <geom name="stanfordbunny_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="stanfordbunny_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="stanfordbunny_contact2" class="object_contact" mesh="contact2"  />
+            <geom name="stanfordbunny_contact3" class="object_contact" mesh="contact3"  />
+            <geom name="stanfordbunny_contact4" class="object_contact" mesh="contact4"  />
+            <geom name="stanfordbunny_contact5" class="object_contact" mesh="contact5"  />
+        </body>
+    </worldbody>
+</mujoco>

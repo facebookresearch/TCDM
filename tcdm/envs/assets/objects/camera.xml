@@ -1,0 +1,24 @@
+
+<mujoco model="camera">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="camera" file="../meshes/objects/camera/camera.stl"  />
+        <mesh name="contact0" file="../meshes/objects/camera/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/camera/contact1.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="camera_visual" class="object_visual" mesh="camera" rgba="1 0 0 1.0" />
+            <geom name="camera_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="camera_contact1" class="object_contact" mesh="contact1"  />
+        </body>
+    </worldbody>
+</mujoco>

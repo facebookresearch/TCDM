@@ -1,0 +1,26 @@
+
+<mujoco model="doorknob">
+    <include file='../common.xml'/>
+    
+    <asset>
+        <mesh name="doorknob" file="../meshes/objects/doorknob/doorknob.stl"  />
+        <mesh name="contact0" file="../meshes/objects/doorknob/contact0.stl"  />
+        <mesh name="contact1" file="../meshes/objects/doorknob/contact1.stl"  />
+        <mesh name="contact2" file="../meshes/objects/doorknob/contact2.stl"  />
+    </asset>
+    
+    <worldbody>
+        <body name="object" pos="0.00 0.0 0.035" >
+            <joint name="OBJTx" pos="0 0 0" axis="1 0 0" type="slide" class="freejoint" />
+            <joint name="OBJTy" pos="0 0 0" axis="0 1 0" type="slide" class="freejoint" />
+            <joint name="OBJTz" pos="0 0 0" axis="0 0 1" type="slide" class="freejoint" />
+            <joint name="OBJRx" pos="0 0 0" axis="1 0 0" class="freejoint" />
+            <joint name="OBJRy" pos="0 0 0" axis="0 1 0" class="freejoint" />
+            <joint name="OBJRz" pos="0 0 0" axis="0 0 1" class="freejoint" />
+            <geom name="doorknob_visual" class="object_visual" mesh="doorknob" rgba="1 0 0 1.0" />
+            <geom name="doorknob_contact0" class="object_contact" mesh="contact0"  />
+            <geom name="doorknob_contact1" class="object_contact" mesh="contact1"  />
+            <geom name="doorknob_contact2" class="object_contact" mesh="contact2"  />
+        </body>
+    </worldbody>
+</mujoco>

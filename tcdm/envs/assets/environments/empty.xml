@@ -1,0 +1,32 @@
+<mujoco model='empty-environment'>
+    <include file='../common.xml'/>
+
+    <option iterations="20" noslip_iterations="20" timestep="0.004"/>
+    <size njmax="1000" nconmax="100" nstack="600000" />
+    <visual>
+        <global offwidth="3024" offheight="1680" />
+        <quality shadowsize="4096" offsamples="8" />
+        <map force="0.1" fogend="5" />
+    </visual>
+
+    <!-- ======= WORLD ======= -->
+    <worldbody>
+        <!-- indoor lights -->
+        <light directional="false" diffuse=".4 .4 .45" specular="0.3 0.3 0.6" pos="-6 -6 10" dir="0 0 -1"/>
+        <light directional="false" diffuse=".4 .4 .45" specular="0.3 0.3 0.6" pos="6 -6 10" dir="0 0 -1"/>
+        <light directional="false" diffuse=".6 .6 .6" specular="0.3 0.3 0.6" pos="0 0 10" dir="0 0 -1"/>
+
+        <!-- front view -->
+        <camera name="skew_side" pos="-0.6 0.7 0.8" quat="-0.33141357403559174 -0.1913417161825449 0.4619397662556433 0.8001031451912656" fovy="60"/>
+        <camera name="paper" pos="-0.6 0.6 0.6" quat="-0.33141357403559174 -0.1913417161825449 0.4619397662556433 0.8001031451912656" fovy="20"/>
+
+        <!-- Side view camera -->
+        <camera name="side" pos="0.75 0 0.8" quat="0.6532814824381883 0.27059805007309845 0.2705980500730985 0.6532814824381882" fovy="50"/>
+    
+        <!-- Camera for the VIL paper -->
+        <camera name="vil_camera" pos="0 -1.2 1.2" quat="0.92388 -0.382683 0 0" />
+ 
+
+    </worldbody>
+    
+</mujoco>
