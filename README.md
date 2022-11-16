@@ -6,12 +6,11 @@ This codebase contains an implementation of the TCDM benchmark and PGDM learning
 ## Citations
 If you found this code useful in any way, please cite our paper:
 ```
-@InProceedings{dasari2022pgdm,
-            title={Learning Dexterous Manipulation from Exemplar Object Trajectories and Pre-Grasps},
-            author={Dasari, Sudeep and Gupta, Abhinav and Kumar, Vikash},
-            journal={arXiv preprint arXiv:2209.11221},
-            year={2022}
-          }
+@article{dasari2022learning,
+  title={Learning Dexterous Manipulation from Exemplar Object Trajectories and Pre-Grasps},
+  author={Dasari, Sudeep and Gupta, Abhinav and Kumar, Vikash},
+  journal={arXiv preprint arXiv:2209.11221},
+  year={2022}
 }
 ```
 
