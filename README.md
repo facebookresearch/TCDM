@@ -7,10 +7,12 @@ This codebase contains an implementation of the TCDM benchmark and PGDM learning
 If you found this code useful in any way, please cite our paper:
 ```
 @inproceedings{dasari2023pgdm,
-  title={Learning Dexterous Manipulation from Exemplar Object Trajectories and Pre-Grasps},
+  title={Learning dexterous manipulation from exemplar object trajectories and pre-grasps},
   author={Dasari, Sudeep and Gupta, Abhinav and Kumar, Vikash},
-  booktitle={IEEE International Conference on Robotics and Automation 2023},
-  year={2023}
+  booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={3889--3896},
+  year={2023},
+  organization={IEEE}
 }
 ```
 
